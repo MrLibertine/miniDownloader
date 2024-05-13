@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <!--Project was exported from assembly: D:\Program Files (x86)\Tencent\QQGameTempest\MiniGames\LSSH\miniDownloader.exe-->
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{4B22E853-892E-4EAA-93E7-97BFC7A88209}</ProjectGuid>
+        <OutputType>WinExe</OutputType>
+        <AssemblyName>miniDownloader</AssemblyName>
+        <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+        <ApplicationVersion>1.0.30.31</ApplicationVersion>
+        <FileAlignment>512</FileAlignment>
+        <FileUpgradeFlags>
+        </FileUpgradeFlags>
+        <UpgradeBackupLocation>
+        </UpgradeBackupLocation>
+        <OldToolsVersion>3.5</OldToolsVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>D:\Program Files (x86)\Tencent\QQGameTempest\MiniGames\LSSH\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>D:\Program Files (x86)\Tencent\QQGameTempest\MiniGames\LSSH</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Ionic.Zip.Unity">
+            <HintPath>lib\Ionic.Zip.Unity.dll</HintPath>
+        </Reference>
+        <Reference Include="PresentationCore" />
+        <Reference Include="PresentationFramework" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Management" />
+        <Reference Include="System.Xml" />
+        <Reference Include="WindowsBase" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="src\DownloadThread.cs" />
+        <Compile Include="src\Tools\CheckWinVersion.cs" />
+        <Compile Include="src\Tools\Tools.cs" />
+        <Compile Include="src\Tools\HttpUtils.cs" />
+        <Compile Include="src\Tools\LogTool.cs" />
+        <Compile Include="src\Tools\CommonTools.cs" />
+        <Compile Include="src\Config.cs" />
+        <Compile Include="src\DownloadItem.cs" />
+        <Compile Include="src\DownloadInfo.cs" />
+        <Compile Include="App.xaml.cs" />
+        <Compile Include="MainWindow.xaml.cs">
+            <DependentUpon>mainwindow.xaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Include="src\QQGameMsg\Crypter.cs" />
+        <Compile Include="src\QQGameMsg\MsgHandler.cs" />
+        <Compile Include="src\QQGameMsg\NamedPipeClient.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Resource Include="res\addqq.png" />
+        <Resource Include="res\contact.png" />
+        <Resource Include="res\downloading.png" />
+        <Resource Include="res\icon.png" />
+        <Resource Include="res\indicator.png" />
+        <Resource Include="res\progress.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <Page Include="mainwindow.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <SubType>Designer</SubType>
+        </Page>
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Properties\" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

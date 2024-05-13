@@ -1,0 +1,63 @@
+<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="蜀山掌门" AllowsTransparency="true" Background="Transparent" WindowStyle="None" Width="1236"
+        Height="670" Icon="res/icon.png">
+    <FrameworkElement.Resources>
+        <Style x:Key="BtnExample" TargetType="{x:Type Button}">
+            <Style.Setters>
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Name="border" BorderThickness="0" Padding="4,2" BorderBrush="DarkGray"
+                                    CornerRadius="3"
+                                    Background="{TemplateBinding Control.Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        <Style x:Key="FlatProgressBar" TargetType="{x:Type ProgressBar}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <Image Name="PART_Track" Source="/res/progress.png" HorizontalAlignment="Left"
+                                   Stretch="Fill" />
+                            <Image Name="PART_Indicator" Source="/res/Indicator.png" HorizontalAlignment="Left"
+                                   Stretch="None" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
+    <Grid Margin="0,0,0,0">
+        <Panel.Background>
+            <ImageBrush ImageSource="/res/downloading.png" />
+        </Panel.Background>
+        <Button Click="contactBtn_Click" x:Name="contactBtn" Style="{StaticResource BtnExample}"
+                HorizontalAlignment="Left" Margin="956,477,0,0" VerticalAlignment="Top" Width="194" Height="72"
+                Cursor="Hand" Focusable="false">
+            <Control.Background>
+                <ImageBrush ImageSource="/res/contact.png" />
+            </Control.Background>
+        </Button>
+        <Button Click="addqqBtn_Click" x:Name="addqqBtn" Style="{StaticResource BtnExample}"
+                HorizontalAlignment="Left" Margin="956,549,0,0" VerticalAlignment="Top" Width="194" Height="73"
+                Cursor="Hand" Focusable="false" BorderThickness="0">
+            <Control.Background>
+                <ImageBrush ImageSource="/res/addqq.png" />
+            </Control.Background>
+        </Button>
+        <ProgressBar x:Name="progressBar" Style="{StaticResource FlatProgressBar}" HorizontalAlignment="Left"
+                     Height="18"
+                     Margin="128,627,0,0" VerticalAlignment="Top" Width="905" Value="100" Orientation="Horizontal" ValueChanged="progressBar_ValueChanged" />
+        <Label x:Name="tipsLbl" Content="游戏启动中" HorizontalAlignment="Left" Margin="510,612,0,0"
+               VerticalAlignment="Top" Foreground="White" />
+        <Label x:Name="processLbl" Content="" HorizontalAlignment="Left" Margin="624,612,0,0"
+               VerticalAlignment="Top" Foreground="White" />
+    </Grid>
+</Window>
